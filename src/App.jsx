@@ -1,10 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/home";
+import Header from "./layout/header";
+import Footer from "./layout/footer";
 
 function App() {
   return (
-    <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div className="bg-white font-satoshi">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 
