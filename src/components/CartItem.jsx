@@ -13,7 +13,7 @@ function CartItem({ cart }) {
       </div>
       <div className="flex-grow">
         <div className="flex justify-between">
-          <h3 className="font-medium">{name}</h3>
+          <h3 className="font-medium line-clamp-2">{name}</h3>
           <span
             onClick={() =>
               dispatch({ type: "REMOVE_FROM_CART", payload: cart.id })
@@ -23,8 +23,10 @@ function CartItem({ cart }) {
             ×
           </span>
         </div>
-        <p className="text-sm text-gray-500">Size: {size}</p>
-        <p className="text-sm text-gray-500">Color: {color}</p>
+        <div className="flex items-center flex-wrap gap-3">
+          <p className="text-sm text-gray-500">Size: {size}</p>
+          <p className="text-sm text-gray-500">Color: {color}</p>
+        </div>
         <div className="flex justify-between items-center mt-2">
           <p className="font-bold">৳{price}</p>
           <div className="flex items-center space-x-2">
@@ -32,7 +34,7 @@ function CartItem({ cart }) {
               onClick={() =>
                 dispatch({ type: "DECREMENT_QTY", payload: cart.id })
               }
-              className="w-6 h-6 bg-gray-100 rounded flex items-center justify-center"
+              className="w-6 h-6 cursor-pointer bg-gray-100 rounded flex items-center justify-center"
             >
               −
             </button>
@@ -42,12 +44,9 @@ function CartItem({ cart }) {
                 dispatch({ type: "INCREMENT_QTY", payload: cart.id })
               }
               disabled={
-                // Disable if no stock left
-                cart.qty >=
-                (state?.products?.find((p) => p.id === cart.id)?.stock ?? 0) +
-                  cart.qty
+                (state.products.find((p) => p.id === cart.id)?.stock ?? 0) === 0
               }
-              className="w-6 h-6 bg-gray-100 rounded flex items-center justify-center"
+              className="w-6 h-6 cursor-pointer disabled:cursor-not-allowed bg-gray-100 rounded flex items-center justify-center"
             >
               +
             </button>

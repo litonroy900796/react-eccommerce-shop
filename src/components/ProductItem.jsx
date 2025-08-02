@@ -10,11 +10,11 @@ function ProductItem({ product }) {
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-auto object-cover"
+          className="h-full w-full object-contain"
         />
       </div>
       <div className="p-4">
-        <h3 className="font-medium">{product.name}</h3>
+        <h3 className="font-medium line-clamp-2">{product.name}</h3>
         <div className="flex items-center justify-between">
           <div className="flex items-center my-1">
             <div className="flex text-yellow-400">
