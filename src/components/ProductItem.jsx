@@ -3,6 +3,7 @@ import { ShopContext } from "../context";
 
 function ProductItem({ product }) {
   const { state, dispatch } = useContext(ShopContext);
+  const alreadyInCart = state.cart.find((item) => item.id === product.id);
   return (
     <div className="bg-gray-100 rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-300">
       <div className="h-48 bg-gray-200 flex items-center justify-center">
@@ -33,10 +34,15 @@ function ProductItem({ product }) {
         </div>
         <p className="font-bold">৳{product.price}</p>
         <button
+          disabled={alreadyInCart || product.stock === 0}
           onClick={() => dispatch({ type: "ADD_TO_CART", payload: product.id })}
           className="w-full mt-2 bg-red-800 py-1 text-gray-100 rounded flex items-center justify-center"
         >
-          Add from Cart
+          {product.stock === 0
+            ? "Out of Stock"
+            : alreadyInCart
+            ? "Remove to Cart"
+            : "Add to Cart"}
         </button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import CartItem from "./CartItem";
 
 function CartSection() {
   return (
@@ -7,6 +8,7 @@ function CartSection() {
         <h2 className="text-2xl font-bold mb-6">YOUR CART</h2>
 
         {/* Cart Items */}
+        <CartItem />
         {/* Convert all class to className and ensure <img /> self-closed */}
 
         {/* Order Summary */}

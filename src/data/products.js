@@ -6,7 +6,7 @@ export const products = [
     price: 499,
     category: "Clothing",
     image: "https://example.com/images/tshirt.jpg",
-    stock: 15,
+    stock: 70,
     rating: 4.5,
     reviews: 21,
   },

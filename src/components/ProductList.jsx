@@ -4,7 +4,7 @@ import { ShopContext } from "../context";
 
 export default function ProductList() {
   const { state, dispatch } = useContext(ShopContext);
-  console.log("state", state.products);
+  console.log("state", state);
 
   return (
     <div className="lg:col-span-2">
