@@ -9,6 +9,8 @@ export const products = [
     stock: 70,
     rating: 4.5,
     reviews: 21,
+    color: "White",
+    size: "M",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const products = [
     stock: 8,
     rating: 4.7,
     reviews: 48,
+    color: "Black",
+    size: "One Size",
   },
   {
     id: 3,
@@ -31,6 +35,8 @@ export const products = [
     stock: 0,
     rating: 4.3,
     reviews: 33,
+    color: "Navy",
+    size: "42",
   },
   {
     id: 4,
@@ -42,6 +48,8 @@ export const products = [
     stock: 12,
     rating: 4.6,
     reviews: 57,
+    color: "Black",
+    size: "One Size",
   },
   {
     id: 5,
@@ -53,6 +61,8 @@ export const products = [
     stock: 4,
     rating: 4.2,
     reviews: 19,
+    color: "Gray",
+    size: "Medium",
   },
   {
     id: 6,
@@ -64,6 +74,8 @@ export const products = [
     stock: 9,
     rating: 4.4,
     reviews: 26,
+    color: "Black",
+    size: "One Size",
   },
   {
     id: 7,
@@ -75,6 +87,8 @@ export const products = [
     stock: 6,
     rating: 4.1,
     reviews: 13,
+    color: "Brown",
+    size: "One Size",
   },
   {
     id: 8,
@@ -86,6 +100,8 @@ export const products = [
     stock: 3,
     rating: 4.0,
     reviews: 17,
+    color: "Black",
+    size: "One Size",
   },
   {
     id: 9,
@@ -97,6 +113,8 @@ export const products = [
     stock: 10,
     rating: 4.5,
     reviews: 29,
+    color: "Silver",
+    size: "One Size",
   },
   {
     id: 10,
@@ -108,6 +126,8 @@ export const products = [
     stock: 20,
     rating: 4.3,
     reviews: 11,
+    color: "Blue",
+    size: "A5",
   },
   {
     id: 11,
@@ -119,6 +139,8 @@ export const products = [
     stock: 5,
     rating: 4.4,
     reviews: 18,
+    color: "Silver",
+    size: "750ml",
   },
   {
     id: 12,
@@ -130,5 +152,7 @@ export const products = [
     stock: 7,
     rating: 4.6,
     reviews: 34,
+    color: "Black",
+    size: "One Size",
   },
 ];

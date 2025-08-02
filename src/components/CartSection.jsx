@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
+import { ShopContext } from "../context";
 
 function CartSection() {
+  const { state, dispatch } = useContext(ShopContext);
   return (
     <div className="lg:col-span-1">
       <div className="bg-white rounded-lg p-6 border border-gray-200">
         <h2 className="text-2xl font-bold mb-6">YOUR CART</h2>
 
         {/* Cart Items */}
-        <CartItem />
+        {state.cart.length > 0 ? (
+          state.cart.map((cart) => <CartItem key={cart.id} cart={cart} />)
+        ) : (
+          <p>No cart </p>
+        )}
         {/* Convert all class to className and ensure <img /> self-closed */}
 
         {/* Order Summary */}

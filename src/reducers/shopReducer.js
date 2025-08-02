@@ -22,7 +22,49 @@ const shopReducer = (state, action) => {
       };
 
     case "REMOVE_FROM_CART":
-      break;
+      // eslint-disable-next-line no-case-declarations
+      const itemToRemove = state.cart.find(
+        (item) => item.id === action.payload
+      );
+      if (!itemToRemove) return state;
+
+      return {
+        ...state,
+        products: state.products.map((p) =>
+          p.id === itemToRemove.id
+            ? { ...p, stock: p.stock + itemToRemove.qty } // restore full qty
+            : p
+        ),
+        cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+
+    case "INCREMENT_QTY":
+      return {
+        ...state,
+        products: state.products.map((p) =>
+          p.id === action.payload && p.stock > 0
+            ? { ...p, stock: p.stock - 1 }
+            : p
+        ),
+        cart: state.cart.map((item) =>
+          item.id === action.payload &&
+          state.products.find((p) => p.id === item.id)?.stock > 0
+            ? { ...item, qty: item.qty + 1 }
+            : item
+        ),
+      };
+    case "DECREMENT_QTY":
+      return {
+        ...state,
+        products: state.products.map((p) =>
+          p.id === action.payload ? { ...p, stock: p.stock + 1 } : p
+        ),
+        cart: state.cart
+          .map((item) =>
+            item.id === action.payload ? { ...item, qty: item.qty - 1 } : item
+          )
+          .filter((item) => item.qty > 0), // remove from cart if qty becomes 0
+      };
     default:
       return state;
   }

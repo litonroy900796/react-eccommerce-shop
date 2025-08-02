@@ -36,7 +36,7 @@ function ProductItem({ product }) {
         <button
           disabled={alreadyInCart || product.stock === 0}
           onClick={() => dispatch({ type: "ADD_TO_CART", payload: product.id })}
-          className="w-full mt-2 bg-red-800 py-1 text-gray-100 rounded flex items-center justify-center"
+          className="w-full cursor-pointer mt-2 bg-red-800 py-1 text-gray-100 rounded flex items-center justify-center"
         >
           {product.stock === 0
             ? "Out of Stock"
