@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../context";
 
 function Header() {
+  const { state, dispatch } = useContext(ShopContext);
+
   return (
     <div>
       {/* Promo Banner */}
@@ -42,6 +45,10 @@ function Header() {
             {/* Search Box */}
             <div className="relative hidden md:block w-64">
               <input
+                onChange={(e) =>
+                  dispatch({ type: "SET_SEARCH_TERM", payload: e.target.value })
+                }
+                value={state.searchTerm}
                 type="text"
                 placeholder="Search for products..."
                 className="w-full bg-gray-100 rounded-full py-2 px-4 text-sm"
@@ -67,7 +74,7 @@ function Header() {
             {/* Cart Icon */}
             <a
               href="#"
-              className="hover:text-gray-500 transition-colors"
+              className="hover:text-gray-500 transition-colors relative"
               aria-label="Cart"
             >
               <svg
@@ -84,6 +91,11 @@ function Header() {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
+              {state.cart.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">
+                  {state.cart.length}
+                </span>
+              )}
             </a>
 
             {/* User Icon */}

@@ -4,6 +4,8 @@ import { products as productData } from "../data/products";
 const initialState = {
   cart: [],
   products: productData,
+  searchTerm: "",
+  sortBy: "Most Popular",
 };
 const shopReducer = (state, action) => {
   switch (action.type) {
@@ -64,6 +66,16 @@ const shopReducer = (state, action) => {
             item.id === action.payload ? { ...item, qty: item.qty - 1 } : item
           )
           .filter((item) => item.qty > 0), // remove from cart if qty becomes 0
+      };
+    case "SET_SEARCH_TERM":
+      return {
+        ...state,
+        searchTerm: action.payload,
+      };
+    case "SET_SORT_BY":
+      return {
+        ...state,
+        sortBy: action.payload,
       };
     default:
       return state;
